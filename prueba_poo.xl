@@ -1,0 +1,63 @@
+~/
+Archivo: prueba_poo.xl
+Autor: GrupoPixel
+Fecha: 2025-07-23
+Descripción: Prueba de POO en Pixel.
+/~
+
+Clase Persona {
+    
+    Variable Privado nombre: texto;
+    Variable Privado edad: numero;
+
+    Metodo Publico getNombre(): texto
+        Retornar Este.nombre;
+    Finalizar
+
+    Metodo Publico setNombre(nuevo_nombre: texto): nulo
+        Este.nombre = nuevo_nombre;
+    Finalizar
+
+    Metodo Publico inicializar(nombre: texto, edad: numero): logico
+        Este.nombre = nombre;
+        Este.edad = edad;
+        Retornar verdadero;
+    Finalizar
+
+    Metodo Publico saludar(): texto
+        Retornar "Hola, soy " + Este.nombre;
+    Finalizar
+}
+Finalizar
+
+Iniciar
+    Variable p: Persona;
+    p = Nuevo Persona("Juan", 30);
+    Mostrar p.saludar();
+
+    ~ Declaración de variables
+    Arreglo notas: numero[3];
+    Variable suma: numero;
+    Variable promedio: numero;
+    Variable i: numero;
+    
+    ~ Inicialización de datos
+    notas[0] = 85;
+    notas[1] = 90;
+    notas[2] = 75;
+    suma = 0;
+    i = 0;
+    
+    ~ Bucle para sumar todas las notas
+    Mientras i < 3 Hacer
+        suma = suma + notas[i];
+        i = i + 1;
+    Finalizar
+    
+    ~ Cálculo del promedio
+    promedio = suma / 3;
+    
+    ~ Mostrar el resultado
+    Mostrar "Promedio:";
+    Mostrar promedio;
+Finalizar
