@@ -1,0 +1,110 @@
+~ Sistema de Gestion Simple
+
+Clase Estudiante
+{
+    Variable Privado nombre : texto;
+    Variable Privado promedio : numero;
+    Variable Publico activo : logico;
+    
+    Metodo Publico establecerNombre(nom : texto) : vacio
+        Este.nombre = nom;
+        Este.activo = Verdadero;
+        Mostrar "Estudiante registrado";
+    Finalizar
+    
+    Metodo Publico calcularPromedio(nota1 : numero, nota2 : numero) : numero
+        Este.promedio = (nota1 + nota2) / 2;
+        Retornar Este.promedio;
+    Finalizar
+    
+    Metodo Publico estaAprobado() : logico
+        Si Este.promedio >= 65 Entonces
+            Retornar Verdadero;
+        Sino
+            Retornar Falso;
+        Finalizar
+    Finalizar
+}
+Finalizar
+
+Funcion validarNota(nota : numero) : logico
+    Si nota >= 0 y nota <= 100 Entonces
+        Retornar Verdadero;
+    Sino
+        Retornar Falso;
+    Finalizar
+Finalizar
+
+Funcion mostrarMenu() : vacio
+    Mostrar "1. Registrar estudiante";
+    Mostrar "2. Calcular promedio";
+    Mostrar "3. Verificar estado";
+    Mostrar "4. Salir";
+Finalizar
+
+Iniciar
+    
+    Constante numero NOTA_APROBACION : 65;
+    Constante texto SISTEMA : "Sistema de Gestion de Estudiantes";
+    
+    Variable nombre : texto;
+    Variable opcion : numero;
+    Variable continuar : logico;
+    Variable nota1, nota2 : numero;
+    
+    estudiante1 = Nuevo Estudiante();
+    
+    Mostrar SISTEMA;
+    continuar = Verdadero;
+    
+    Mientras continuar Hacer
+        
+        mostrarMenu();
+        Leer opcion;
+        
+        Selector opcion {
+            Caso 1 :
+                Mostrar "Ingrese nombre: ";
+                Leer nombre;
+                estudiante1.establecerNombre(nombre);
+                Detener;
+                
+            Caso 2 :
+                Mostrar "Ingrese primera nota: ";
+                Leer nota1;
+                Mostrar "Ingrese segunda nota: ";
+                Leer nota2;
+                
+                Si validarNota(nota1) y validarNota(nota2) Entonces
+                    Variable promedio : numero;
+                    promedio = estudiante1.calcularPromedio(nota1, nota2);
+                    Mostrar "Promedio: ";
+                    Mostrar promedio;
+                Sino
+                    Mostrar "Notas invalidas";
+                Finalizar
+                Detener;
+                
+            Caso 3 :
+                Si estudiante1.estaAprobado() Entonces
+                    Mostrar "APROBADO";
+                Sino
+                    Mostrar "REPROBADO";
+                Finalizar
+                Detener;
+                
+            Caso 4 :
+                continuar = Falso;
+                Detener;
+                
+            Otro :
+                Mostrar "Opcion invalida";
+                Detener;
+        }
+        Finalizar
+    Finalizar
+
+    Si estudiante1.activo Entonces
+        Mostrar "Sistema finalizado correctamente";
+    Finalizar
+Finalizar

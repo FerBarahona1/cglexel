@@ -12,7 +12,7 @@ PRIVADO: 'Privado';
 NUMERO_TIPO: 'numero';
 TEXTO_TIPO: 'texto';
 LOGICO_TIPO: 'logico';
-NULO_TIPO: 'nulo';
+VACIO_TIPO: 'vacio';
 MOSTRAR: 'Mostrar';
 LEER: 'Leer';
 SI: 'Si';

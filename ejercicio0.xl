@@ -1,0 +1,47 @@
+~ EJERCICIO: Procesador de Números con Suma Acumulativa
+~ 
+~ OBJETIVO: Crear un programa que procese números ingresados por el usuario
+~ y calcule la suma de todos los números desde 1 hasta el número ingresado.
+~
+~ REQUISITOS:
+~ 1. El programa debe mostrar un menú de bienvenida
+~ 2. Solicitar al usuario que ingrese un número
+~ 3. Si el usuario ingresa 0, el programa debe terminar
+~ 4. Para cualquier otro número, usar un ciclo Para (for) que:
+~    - Itere desde 1 hasta el número ingresado
+~    - Vaya sumando cada número (suma acumulativa)
+~ 5. Al finalizar el ciclo, mostrar el resultado final
+~ 7. Permitir al usuario ingresar múltiples números hasta que ingrese 0
+
+Iniciar
+    Mostrar "=================================";
+    Mostrar "  Procesador de Numeros";
+    Mostrar "  Ingrese 0 para salir";
+    Mostrar "=================================";
+
+    Variable continuar : logico;
+    Variable num : numero;
+    Variable suma : numero;
+    
+    continuar = Verdadero;
+    Mientras continuar Hacer
+        Mostrar "Ingrese un numero:";
+        Leer num;
+        Si num == 0 Entonces
+            continuar = Falso;
+        Sino
+            suma = 0;
+            Mostrar "Procesando del 1 al numero ingresado...";
+            Para i = 1; i <= num; i++
+                suma += i;
+            Finalizar
+            Mostrar "=======================================";
+            Mostrar "Resultado final:";
+            Mostrar "Numero ingresado: ";
+            Mostrar num;
+            Mostrar "Suma total del 1 al numero: ";
+            Mostrar suma;
+            Mostrar "=======================================";
+        Finalizar
+    Finalizar
+Finalizar
