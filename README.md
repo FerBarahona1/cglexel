@@ -206,7 +206,7 @@ Finalizar
 ```
 
 ### Funciones
-``
+```
 ~ Función que calcula el factorial
 Funcion factorial(n : numero) : numero
     Variable resultado : numero;
