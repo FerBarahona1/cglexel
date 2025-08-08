@@ -660,7 +660,34 @@ public class CodeGenerator extends AnalizadorBaseVisitor<String> {
         
         return resultado.toString();
     }
-
+    
+    // @Override
+    // public String visitParametros(AnalizadorParser.ParametrosContext ctx) {
+    //     if (ctx.parametros_lista() != null) {
+    //         return visit(ctx.parametros_lista());
+    //     }
+    //     return "";
+    // }
+    
+    // @Override
+    // public String visitParametros_lista(AnalizadorParser.Parametros_listaContext ctx) {
+    //     List<String> params = new ArrayList<>();
+        
+    //     // Verificar si hay expresiones en la lista de parámetros
+    //     if (ctx.expresion() != null) {
+    //         params.add(visit(ctx.expresion()));
+    //     }
+        
+    //     // Si hay más parámetros en la lista recursiva
+    //     if (ctx.parametros_lista() != null) {
+    //         String moreParams = visit(ctx.parametros_lista());
+    //         if (!moreParams.isEmpty()) {
+    //             params.add(moreParams);
+    //         }
+    //     }
+        
+    //     return String.join(", ", params);
+    // }
     
     @Override
     public String visitFuncion(AnalizadorParser.FuncionContext ctx) {
