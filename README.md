@@ -1,118 +1,444 @@
 # LEXEL - Lenguaje de Programación
 
 <div align="center">
-  <img src="logo.jpg" alt="Lexel Logo" width="300">
+  <img src="logo.jpg" alt="LEXEL Logo" width="300">
 </div>
 
-LEXEL es un lenguaje de programación de alto nivel con sintaxis en español, diseñado para ser intuitivo y fácil de aprender. Este proyecto incluye un compilador completo que traduce código LEXEL a C++ utilizando ANTLR para el análisis sintáctico.
+LEXEL es un lenguaje de programación moderno con sintaxis en español, diseñado para ser intuitivo y fácil de aprender. ¡No necesitas conocimientos previos de compiladores o herramientas complejas!
 
-## 🚀 Características
+## 🚀 ¿Qué es LEXEL?
 
-- **Sintaxis en español**: Palabras clave y estructuras familiares en español
-- **Tipos de datos**: Variables numéricas y lógicas
-- **Estructuras de control**: Bucles `Mientras`, `Para`, y condicionales `Si-Sino`
-- **Entrada/Salida**: Comandos `Mostrar` y `Leer` para interacción con el usuario
-- **Compilación a C++**: Genera código C++ optimizado que se compila con GCC
+LEXEL es un lenguaje diseñado para ser:
+- **Fácil de aprender:** Sintaxis completamente en español
+- **Intuitivo:** Palabras clave familiares como `Mostrar`, `Leer`, `Si-Sino`
+- **Rápido:** Se compila a código C++ optimizado
+- **Simple:** Un solo comando ejecuta todo el proceso
+- **Potente:** Programación orientada a objetos, funciones, y más
 
-## 📋 Requisitos
+## 📋 ¿Qué necesitas instalar?
 
-- **JaDK 24** - Para ejecutar ANTLR y el compilador
-- **ANTLR 4** - Para el análisis sintáctico
-- **GCC** - Para compilar el código C++ generado
+Solo necesitas 3 cosas básicas:
 
-### Instalación de dependencias
+### 1. **Editor de código**
+- Visual Studio Code (recomendado)
+- O cualquier editor con terminal integrada
 
-```bash
-# Instalar ANTLR (en sistemas Unix/Linux)
-curl -O https://www.antlr.org/download/antlr-4.x.x-complete.jar
-# Mover a directorio apropiado y configurar CLASSPATH
+### 2. **Java JDK 24**
+- Descarga desde: [Oracle JDK](https://www.oracle.com/java/technologies/downloads/)
+- O usa OpenJDK desde tu gestor de paquetes
 
-# En Ubuntu/Debian
-sudo apt install gcc default-jdk
+### 3. **Compilador C++ (g++)**
+- **Windows:** Instala MinGW o usar Git Bash
+- **Ubuntu/Linux:** `sudo apt install g++`
+- **macOS:** `xcode-select --install`
 
-# En macOS con Homebrew
-brew install gcc openjdk antlr
-```
+## 📦 Instalación de LEXEL
 
-## 🛠️ Instalación y Uso
+### Paso 1: Descargar LEXEL
 
-### Paso 1: Clonar el repositorio
-```bash
 git clone https://github.com/FerBarahona1/cglexel.git
 cd cglexel
-```
 
-### Paso 2: Compilar el analizador con ANTLR
-```bash
-antlr4 Analizador.g4 -visitor
-javac *.java
-```
 
-### Paso 3: Crear tu programa LEXEL
-Crea un archivo con extensión `.xl` (por ejemplo, `ejemplo.xl`):
+### Paso 2: ¡Listo para usar!
+No necesitas compilar nada más. Todo viene precompilado y listo.
 
-```lexel
+## 🎯 Tu primer programa en LEXEL
+
+### Paso 1: Crear tu archivo
+1. Abre tu editor de código (Visual Studio Code)
+2. Crea un archivo llamado `ejercicio.xl` en la carpeta del proyecto
+3. Escribe tu código LEXEL (ver ejemplos abajo)
+
+### Paso 2: Ejecutar tu programa
+Abre la terminal en la carpeta del proyecto y ejecuta:
+
+
+./ejecutar.sh
+
+
+¡Eso es todo! El script automáticamente:
+- ✅ Compila tu código LEXEL
+- ✅ Genera el código C++
+- ✅ Compila el ejecutable
+- ✅ Ejecuta tu programa
+
+## 💡 Ejemplo básico
+
+Crea un archivo "ejercicio.xl" con este contenido:
+
+
 Iniciar
-    Mostrar "Hola, mundo desde LEXEL!";
+
+    Mostrar "¡Hola mundo!";
+   
 Finalizar
-```
-
-### Paso 4: Compilar y ejecutar
-```bash
-# Compilar LEXEL a C++
-java Main
-
-# Compilar C++ a ejecutable
-g++ salida.cpp -o program.exe
-
-# Ejecutar el programa
-./program.exe
 
 
-## 🏗️ Arquitectura del Compilador
+Luego ejecuta:
 
-### Componentes principales
+./ejecutar.sh
 
-1. **Analizador.g4** - Gramática ANTLR que define la sintaxis de LEXEL
-2. **Main.java** - Punto de entrada principal del compilador
-3. **CodeGenerator** - Generador de código C++ a partir del AST
-4. **Visitor Pattern** - Implementación del patrón visitante para recorrer el AST
 
-### Flujo de compilación
+## 🛠️ Más ejemplos de código LEXEL
 
-```
-archivo.xl → ANTLR → AST → CodeGenerator → salida.cpp → GCC → ejecutable
-```
+### Variables y tipos de datos
 
-## 🔧 CodeGenerator con ANTLR
-
-El CodeGenerator utiliza el patrón Visitor de ANTLR para recorrer el Árbol de Sintaxis Abstracta (AST) y generar código C++ equivalente.
-
-### Implementación del Visitor
-
-```java
-public class LexelCodeGenerator extends AnalyzerBaseVisitor<String> {
+Iniciar
+    ~ Números -Esto es un comentario
+    Variable edad : numero;
+    Variable precio : numero;
+    edad = 25;
+    precio = 19.99;
     
-    @Override
-    public String visitPrograma(AnalyzerParser.ProgramaContext ctx) {
-        // Generar código C++ para el programa principal
+    ~ Texto
+    Variable nombre : texto;
+    nombre = "Juan";
+    
+    ~ Valores lógicos
+    Variable activo : logico;
+    activo = Verdadero;
+    
+    ~ Constantes
+    Constante numero MAX_USUARIOS : 100;
+    Constante texto EMPRESA : "Mi Empresa";
+    
+    Mostrar "Nombre: ";
+    Mostrar nombre;
+    Mostrar "Edad: ";
+    Mostrar edad;
+    Mostrar "Activo: ";
+    Mostrar activo;
+Finalizar
+
+
+### Operaciones matemáticas
+
+Iniciar
+    Variable a, b : numero;
+    a = 10;
+    b = 5;
+    
+    Variable suma, resta, multiplicacion, division : numero;
+    suma = a + b;
+    resta = a - b;
+    multiplicacion = a * b;
+    division = a / b;
+    
+    Mostrar "Suma: ";
+    Mostrar suma;
+    Mostrar "Resta: ";
+    Mostrar resta;
+    Mostrar "Multiplicación: ";
+    Mostrar multiplicacion;
+    Mostrar "División: ";
+    Mostrar division;
+Finalizar
+
+
+### Entrada de datos del usuario
+
+Iniciar
+    Variable nombre : texto;
+    Variable edad : numero;
+    
+    Mostrar "Ingresa tu nombre: ";
+    Leer nombre;
+    
+    Mostrar "Ingresa tu edad: ";
+    Leer edad;
+    
+    Mostrar "Hola ";
+    Mostrar nombre;
+    Mostrar ", tienes ";
+    Mostrar edad;
+    Mostrar " años";
+Finalizar
+
+
+### Estructuras de control
+
+Iniciar
+    Variable numero : numero;
+    numero = 15;
+    
+    ~ Condicional Si-Sino
+    Si numero > 10 Entonces
+        Mostrar "El número es mayor que 10";
+    Sino
+        Mostrar "El número es menor o igual que 10";
+    Finalizar
+    
+    ~ Selector (Switch)
+    Selector numero {
+        Caso 10 :
+            Mostrar "Es exactamente 10";
+            Detener;
+        Caso 15 :
+            Mostrar "Es exactamente 15";
+            Detener;
+        Otro :
+            Mostrar "Es otro número";
+            Detener;
     }
+    Finalizar
+
+
+### Bucles
+
+Iniciar
+    ~ Bucle Mientras (While)
+    Variable contador : numero;
+    contador = 0;
+    Mientras contador < 5
+        Mostrar "Contador: ";
+        Mostrar contador;
+        contador = contador + 1;
+    Finalizar
     
-    @Override 
-    public String visitDeclaracion(AnalyzerParser.DeclaracionContext ctx) {
-        // Manejar declaraciones de variables
-    }
+    ~ Bucle Para (For)
+    Variable i : numero;
+    Para i = 1 Hasta 5 Hacer
+        Mostrar "Iteración: ";
+        Mostrar i;
+    Finalizar
+Finalizar
+
+
+### Funciones
+
+~ Función que calcula el factorial
+Funcion factorial(n : numero) : numero
+    Variable resultado : numero;
+    Variable i : numero;
+    resultado = 1;
     
-    // Más métodos visit para cada regla de la gramática...
+    Para i = 1 Hasta n Hacer
+        resultado = resultado * i;
+    Finalizar
+    
+    Retornar resultado;
+Finalizar
+
+~ Función que no retorna valor
+Funcion saludar(nombre : texto) : vacio
+    Mostrar "¡Hola, ";
+    Mostrar nombre;
+    Mostrar "!";
+Finalizar
+
+Iniciar
+    Variable num : numero;
+    Variable fact : numero;
+    
+    num = 5;
+    fact = factorial(num);
+    
+    Mostrar "Factorial de ";
+    Mostrar num;
+    Mostrar " es: ";
+    Mostrar fact;
+    
+    saludar("María");
+Finalizar
+
+
+### Programación Orientada a Objetos (Clases)
+
+Clase Persona
+{
+    Variable Privado nombre : texto;
+    Variable Privado edad : numero;
+    
+    Metodo Publico inicializar(n : texto, e : numero) : vacio
+        Este.nombre = n;
+        Este.edad = e;
+    Finalizar
+    
+    Metodo Publico mostrarInfo() : vacio
+        Mostrar "Nombre: ";
+        Mostrar Este.nombre;
+        Mostrar "Edad: ";
+        Mostrar Este.edad;
+    Finalizar
+    
+    Metodo Publico cumplirAnios() : vacio
+        Este.edad = Este.edad + 1;
+        Mostrar Este.nombre;
+        Mostrar " ahora tiene ";
+        Mostrar Este.edad;
+        Mostrar " años";
+    Finalizar
 }
-```
+Finalizar
 
-### Generación de código
+Iniciar
+    persona1 = Nuevo Persona();
+    persona1.inicializar("Ana", 25);
+    persona1.mostrarInfo();
+    persona1.cumplirAnios();
+    
+    persona2 = Nuevo Persona();
+    persona2.inicializar("Carlos", 30);
+    persona2.mostrarInfo();
+Finalizar
 
-El generador traduce cada construcción de LEXEL a su equivalente en C++:
 
-- `Mostrar` → `cout`
-- `Leer` → `cin`
-- `Variable nombre : numero` → `double nombre`
-- `Variable nombre : logico` → `bool nombre`
+## 🎯 Ejemplo completo: Sistema de Gestión de Estudiantes
 
+
+~ Sistema de Gestion Simplificado
+~ Ejemplo que cubre las principales reglas de la gramatica Lexel
+Clase Estudiante
+{
+    Variable Privado nombre : texto;
+    Variable Privado promedio : numero;
+    Variable Publico activo : logico;
+    
+    Metodo Publico establecerNombre(nom : texto) : vacio
+        Este.nombre = nom;
+        Este.activo = Verdadero;
+        Mostrar "Estudiante registrado";
+    Finalizar
+    
+    Metodo Publico calcularPromedio(nota1 : numero, nota2 : numero) : numero
+        Este.promedio = (nota1 + nota2) / 2;
+        Retornar Este.promedio;
+    Finalizar
+    
+    Metodo Publico estaAprobado() : logico
+        Si Este.promedio >= 65 Entonces
+            Retornar Verdadero;
+        Sino
+            Retornar Falso;
+        Finalizar
+    Finalizar
+}
+Finalizar
+
+Funcion validarNota(nota : numero) : logico
+    Si nota >= 0 y nota <= 100 Entonces
+        Retornar Verdadero;
+    Sino
+        Retornar Falso;
+    Finalizar
+Finalizar
+
+Funcion mostrarMenu() : vacio
+    Mostrar "1. Registrar estudiante";
+    Mostrar "2. Calcular promedio";
+    Mostrar "3. Verificar estado";
+    Mostrar "4. Salir";
+Finalizar
+
+Iniciar
+    Constante numero NOTA_APROBACION : 65;
+    Constante texto SISTEMA : "Sistema de Gestion de Estudiantes";
+    
+    Variable nombre : texto;
+    Variable opcion : numero;
+    Variable continuar : logico;
+    Variable nota1, nota2 : numero;
+    
+    estudiante1 = Nuevo Estudiante();
+    
+    Mostrar SISTEMA;
+    continuar = Verdadero;
+    Mientras continuar
+        mostrarMenu();
+        Leer opcion;
+        
+        Selector opcion {
+            Caso 1 :
+                Mostrar "Ingrese nombre: ";
+                Leer nombre;
+                estudiante1.establecerNombre(nombre);
+                Detener;
+                
+            Caso 2 :
+                Mostrar "Ingrese primera nota: ";
+                Leer nota1;
+                Mostrar "Ingrese segunda nota: ";
+                Leer nota2;
+                
+                Si validarNota(nota1) y validarNota(nota2) Entonces
+                    Variable promedio : numero;
+                    promedio = estudiante1.calcularPromedio(nota1, nota2);
+                    Mostrar "Promedio: ";
+                    Mostrar promedio;
+                Sino
+                    Mostrar "Notas invalidas";
+                Finalizar
+                Detener;
+                
+            Caso 3 :
+                Si estudiante1.estaAprobado() Entonces
+                    Mostrar "APROBADO";
+                Sino
+                    Mostrar "REPROBADO";
+                Finalizar
+                Detener;
+                
+            Caso 4 :
+                continuar = Falso;
+                Detener;
+                
+            Otro :
+                Mostrar "Opcion invalida";
+                Detener;
+        }
+        Finalizar
+    Finalizar
+    
+    Si estudiante1.activo Entonces
+        Mostrar "Sistema finalizado correctamente";
+    Finalizar
+Finalizar
+
+
+## 🚨 Solución de problemas comunes
+
+### ❌ Error: "java no se reconoce como comando"
+**Solución:** Java no está instalado o no está en el PATH
+- Instala JDK 24
+- Verifica con: `java -version`
+
+### ❌ Error: "g++ no se reconoce como comando"
+**Solución:** g++ no está instalado
+- **Windows:** Instala MinGW o usa Git Bash
+- **Linux:** `sudo apt install g++`
+- **macOS:** `xcode-select --install`
+
+### ❌ Error: "No such file ejercicio.xl"
+**Solución:** 
+- Asegúrate de que tu archivo se llame exactamente "ejercicio.xl"
+- Debe estar en la misma carpeta que `run.sh`
+
+### ❌ El programa no hace nada
+**Solución:** 
+- Revisa que tu código tenga la estructura: `Iniciar ... Finalizar`
+- Verifica que uses `Mostrar` para mostrar resultados
+
+
+## 🎯 Flujo de trabajo típico
+
+1. **Escribir código:** Edita "ejercicio.xl" con tu código LEXEL
+2. **Ejecutar:** `./run.sh` en la terminal
+3. **Ver resultado:** Tu programa se ejecuta automáticamente
+4. **Repetir:** Modifica el código y vuelve a ejecutar
+
+
+
+## 📄 Licencia
+
+Este proyecto fue desarrollado por estudiantes de la UNAH en la clase de Diseño de Compiladores.
+
+## 📄 Autores 
+
+- Fernanda Sarahi Betancourth
+- Fredy Edgardo Castellon
+- Olman Fernando Moreno
+
+<div align="center">
+  <b>¡Disfruta programando en LEXEL! 🚀</b>
+</div>
