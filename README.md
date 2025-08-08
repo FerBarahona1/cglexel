@@ -67,13 +67,13 @@ Abre la terminal en la carpeta del proyecto y ejecuta:
 
 Crea un archivo "ejercicio.xl" con este contenido:
 
-
+```
 Iniciar
 
     Mostrar "¡Hola mundo!";
    
 Finalizar
-
+```
 
 Luego ejecuta:
 
@@ -83,7 +83,7 @@ Luego ejecuta:
 ## 🛠️ Más ejemplos de código LEXEL
 
 ### Variables y tipos de datos
-
+```
 Iniciar
     ~ Números -Esto es un comentario
     Variable edad : numero;
@@ -110,10 +110,10 @@ Iniciar
     Mostrar "Activo: ";
     Mostrar activo;
 Finalizar
-
+```
 
 ### Operaciones matemáticas
-
+```
 Iniciar
     Variable a, b : numero;
     a = 10;
@@ -134,10 +134,10 @@ Iniciar
     Mostrar "División: ";
     Mostrar division;
 Finalizar
-
+```
 
 ### Entrada de datos del usuario
-
+```
 Iniciar
     Variable nombre : texto;
     Variable edad : numero;
@@ -154,10 +154,10 @@ Iniciar
     Mostrar edad;
     Mostrar " años";
 Finalizar
-
+```
 
 ### Estructuras de control
-
+```
 Iniciar
     Variable numero : numero;
     numero = 15;
@@ -182,10 +182,10 @@ Iniciar
             Detener;
     }
     Finalizar
-
+```
 
 ### Bucles
-
+```
 Iniciar
     ~ Bucle Mientras (While)
     Variable contador : numero;
@@ -203,10 +203,10 @@ Iniciar
         Mostrar i;
     Finalizar
 Finalizar
-
+```
 
 ### Funciones
-
+``
 ~ Función que calcula el factorial
 Funcion factorial(n : numero) : numero
     Variable resultado : numero;
@@ -241,10 +241,10 @@ Iniciar
     
     saludar("María");
 Finalizar
-
+```
 
 ### Programación Orientada a Objetos (Clases)
-
+```
 Clase Persona
 {
     Variable Privado nombre : texto;
@@ -282,13 +282,13 @@ Iniciar
     persona2.inicializar("Carlos", 30);
     persona2.mostrarInfo();
 Finalizar
-
+```
 
 ## 🎯 Ejemplo completo: Sistema de Gestión de Estudiantes
 
-
-~ Sistema de Gestion Simplificado
-~ Ejemplo que cubre las principales reglas de la gramatica Lexel
+```
+ Sistema de Gestion Simplificado
+ Ejemplo que cubre las principales reglas de la gramatica Lexel
 Clase Estudiante
 {
     Variable Privado nombre : texto;
@@ -394,7 +394,7 @@ Iniciar
         Mostrar "Sistema finalizado correctamente";
     Finalizar
 Finalizar
-
+```
 
 ## 🚨 Solución de problemas comunes
 
